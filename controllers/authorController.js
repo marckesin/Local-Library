@@ -1,7 +1,8 @@
 const Author = require('../models/author');
 const async = require('async');
-const Book = require('../models/book');
 const { body, validationResult } = require('express-validator');
+const Book = require('../models/book');
+var debug = require('debug')('author');
 
 // Display list of all Authors.
 exports.author_list = function (req, res, next) {
@@ -141,9 +142,13 @@ exports.author_delete_post = function (req, res, next) {
 
 // Display Author update form on GET.
 exports.author_update_get = function (req, res) {
+    body('id').escape().trim();
 
     Author.findById(req.params.id).exec((err, author) => {
-        if (err) { next(err) }
+        if (err) {
+            debug('update error:' + err);
+            return next(err)
+        }
         else if (author === null) {
             res.redirect('/catalog/authors');
         } else {
@@ -155,8 +160,6 @@ exports.author_update_get = function (req, res) {
 
 // Handle Author update on POST.
 exports.author_update_post = [
-
-    // console.log(req.body.first_name);
 
     // Validate and sanitize fields.
     body('first_name').trim().isLength({ min: 1 }).escape().withMessage('First name must be specified.')

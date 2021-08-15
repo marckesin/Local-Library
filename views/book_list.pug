@@ -1,14 +1,24 @@
 extends layout
 
 block content
-  h1= title
+  h2.ps-4.mb-3.ms-2= title
+  hr
 
   ul
     - book_list.sort(function(a, b) {let textA = a.title.toUpperCase(); let textB = b.title.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
     each book in book_list
-      li
-        a(href=book.url) #{book.title}
-        |  (#{book.author.name})
+      //- li
+      //-   a(href=book.url) #{book.title}
+      //-   |  (#{book.author.name})
+
+      div.list-group.mb-1.w-75
+        a.list-group-item.list-group-item-action.d-flex.gap-3.py-3(href=book.url aria-current="true")
+          //- img.rounded-circle.flex-shrink-0(src="https://github.com/twbs.png" alt="twbs" width="32" height="32")
+          div.d-flex.gap-2.w-100.justify-content-between
+            div
+              h6.mb-0 #{book.title}
+              p.mb-0.opacity-75 #{book.author.name}
+            small.opacity-50.text-nowrap now
 
     else
       li There are no books.
