@@ -5,28 +5,12 @@ block content
   hr
   ul
     each val in bookinstance_list
-      //- li
-      //-   a(href=val.url) #{val.book.title} : #{val.imprint}: 
-      //-   if val.status=='Available'
-      //-     span.text-success #{val.status}
-      //-   else if val.status=='Maintenance'
-      //-     span.text-danger #{val.status}
-      //-   else if val.status=='Loaned'
-      //-     span.text-info #{val.status}
-      //-   else
-      //-     span.text-warning #{val.status}
-      //-   if val.status!='Available'
-      //-     span  (Due: #{val.due_back_formatted} )
-
-      div.list-group.mb-1.w-75.position-relative
-        //- span.position-absolute.top-0.end-0.translate-middle.badge.rounded-pill.bg-danger teste
+      div.list-group.mb-1.w-75.item-card
         a.list-group-item.list-group-item-action.d-flex.gap-3.p-2.shadow(href=val.url aria-current="true")
-          //- img.rounded-circle.flex-shrink-0(src="https://github.com/twbs.png" alt="twbs" width="32" height="32")
           div.d-flex.gap-2.w-100.justify-content-between
             div
               h6.mb-0.text-dark #{val.book.title}
               p.mb-0.opacity-75.text-dark #{val.imprint}
-            //- small.opacity-50.text-nowrap now
             if val.status=='Available'
               p.badge.bg-success.mb-auto #{val.status}
             else if val.status=='Maintenance'

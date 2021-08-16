@@ -63,6 +63,7 @@ html.h-100(lang='en')
     title= title
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(http-equiv="Content-Security-Policy" content="script-src 'self' https://images.unsplash.com")
     link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css")
     link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous")
     link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous")
@@ -73,54 +74,55 @@ html.h-100(lang='en')
   body.bg-light.h-100
     div.container-fluid.h-100
       div.row.h-100
-        div.col-md-4.d-flex
-          div.d-flex.flex-column.flex-grow-1.p-3.text-dark
-            a.d-flex.align-items-center.mb-3.mb-md-0.me-md-auto.text-dark.text-decoration-none(href="/")
-              span.fs-3 Local Library
+        div.col-md-3.d-flex.bg-dark
+          div.d-flex.flex-column.flex-grow-1.p-3.text-white
+            a.d-flex.align-items-center.mb-3.mb-md-0.me-md-auto.text-white.text-decoration-none(href="/")
+              i.fas.fa-landmark.fa-2x.text-primary
+              span.fs-3.ms-3 Local Library
             hr
             ul.nav.nav-pills.flex-column.mb-auto
-              li.nav-item
+              li.index-list
                 a.nav-link.active.d-flex.gap-2(href="/catalog" aria-current="page")
                   i.fas.fa-home.fs-5(style="width:24px;height:24px;")
                   p.m-0.fs-6 Home
               li
-                a.nav-link.text-dark.d-flex.gap-2(href='/catalog/books')
+                a.nav-link.text-white.d-flex.gap-2(href='/catalog/books')
                   i.fas.fa-book.fs-5(style="width:24px;height:24px;")
                   p.m-0.fs-6 All Books
-              li.nav-item
-                a.nav-link.text-dark.d-flex.gap-2(href="/catalog/authors" aria-current="page")
+              li
+                a.nav-link.text-white.d-flex.gap-2(href="/catalog/authors" aria-current="page")
                   i.fas.fa-users.fs-5(style="width:24px;height:24px;")
                   p.m-0.fs-6 All Authors
               li
-                a.nav-link.text-dark.d-flex.gap-2(href='/catalog/genres')
+                a.nav-link.text-white.d-flex.gap-2(href='/catalog/genres')
                   i.bi.bi-chat-right-quote-fill.fs-5(style="width:24px;height:24px;")
                   p.m-0.fs-6 All Genres
               li
-                a.nav-link.text-dark.d-flex.gap-2(href='/catalog/bookinstances')
+                a.nav-link.text-white.d-flex.gap-2(href='/catalog/bookinstances')
                   i.fas.fa-copy.fs-5(style="width:24px;height:24px;")
                   p.m-0.fs-6 All Books-Instances
 
               hr
 
               li
-                a.nav-link.text-dark.d-flex.gap-2(href='/catalog/book/create')
+                a.nav-link.text-white.d-flex.gap-2(href='/catalog/book/create')
                   i.fas.fa-book-medical.fs-5(style="width:24px;height:24px;")
                   p.m-0.fs-6 Create new Book
               li
-                a.nav-link.text-dark.d-flex.gap-2(href='/catalog/author/create')
+                a.nav-link.text-white.d-flex.gap-2(href='/catalog/author/create')
                   i.fas.fa-user-plus.fs-5(style="width:24px;height:24px;")
                   p.m-0.fs-6 Create new Author
-              li.nav-item
-                a.nav-link.text-dark.d-flex.gap-2(href='/catalog/genre/create' aria-current="page")
+              li
+                a.nav-link.text-white.d-flex.gap-2(href='/catalog/genre/create' aria-current="page")
                   i.bi.bi-file-earmark-plus-fill.fs-5(style="width:24px;height:24px;")
                   p.m-0.fs-6 Create new Genre
               li
-                a.nav-link.text-dark.d-flex.gap-2(href='/catalog/bookinstance/create')
+                a.nav-link.text-white.d-flex.gap-2(href='/catalog/bookinstance/create')
                   i.bi.bi-bookmark-plus-fill.fs-5(style="width:24px;height:24px;")
                   p.m-0.fs-6 Create new Book Instance
               hr
                 
           div.b-example-divider
 
-        div.flex-grow-1.p-3.col-md-8
+        div.flex-grow-1.p-3.col-md-9
           block content
