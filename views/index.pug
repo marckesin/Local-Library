@@ -1,24 +1,6 @@
 extends layout
 
 block content
-  //- h1= title
-  //- p Welcome to #[em LocalLibrary], a very basic Express website developed as a tutorial example on the Mozilla Developer Network.
-
-  //- h1 Dynamic content
-
-  //- if error
-  //-   p Error getting dynamic content.
-  //- else
-  //-   p The library has the following record counts:
-
-  //-   ul
-  //-     li  !{data.book_count}
-  //-     li #[strong Copies:] !{data.book_instance_count}
-  //-     li #[strong Copies available:] !{data.book_instance_available_count}
-  //-     li #[strong Authors:] !{data.author_count}
-  //-     li #[strong Genres:] !{data.genre_count}
-
-  //- div.text-center.w-100.h-100.d-flex.flex-column
   div.text-center.d-flex.flex-column.h-100.justify-content-around.home-background.rounded-3
     main.px-5.py-4
       h1.display-5.text-primary=title
@@ -49,8 +31,4 @@ block content
           h3.display-5.fw-normal.text-dark #{data.book_instance_available_count}
           hr.m-0
           p.fs-6.m-0.text-secondary Books  Available
-
-    //- footer.text-white.w-100.text-darg
-      //- p.text-dark Cover template for 
-      //-   a.text-dark(href="https://getbootstrap.com/") Bootstrap, by 
-      //-   a.text-dark(href="https://twitter.com/mdo") @mdo.
+          

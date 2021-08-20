@@ -9,7 +9,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 
 const indexRouter = require('./routes/index');
-const catalogRouter = require('./routes/catalog');// Import routes for "catalog" area of site
+const catalogRouter = require('./routes/catalog');// Import routes for 'catalog' area of site
 
 const app = express();
 
@@ -22,7 +22,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(helmet());
+app.use(helmet());
+app.use(helmet.contentSecurityPolicy(
+  {
+    useDefaults: true,
+    directives: {
+      'script-src': ['self', 'https://code.jquery.com', 'https://cdn.jsdelivr.net'],
+      'img-src': ['self', 'data:', 'https://images.unsplash.com'],
+    },
+  }),
+);
 
 mongoose.Promise = global.Promise;
 
